@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facts by Lacey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #08080d;
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 13, 0.95);
+            border-bottom: 1px solid #252535;
+            padding: 18px 7%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #9b6cff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #9b6cff;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 10vw, 85px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #9b6cff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #bdbdc8;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #9b6cff;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .fact-card {
+            background: #11111a;
+            border: 1px solid #29293a;
+            border-radius: 18px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-6px);
+            border-color: #9b6cff;
+        }
+
+        .fact-card small {
+            color: #9b6cff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .fact-card h3 {
+            margin: 15px 0;
+            font-size: 22px;
+        }
+
+        .fact-card p {
+            color: #bdbdc8;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .category {
+            background: #11111a;
+            border: 1px solid #29293a;
+            border-radius: 14px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            border-color: #9b6cff;
+            transform: translateY(-4px);
+        }
+
+        .random-box {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            background: #11111a;
+            border: 1px solid #29293a;
+            border-radius: 20px;
+            padding: 40px 25px;
+        }
+
+        #randomFact {
+            font-size: 23px;
+            margin-bottom: 25px;
+            color: #eee;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #bdbdc8;
+            font-size: 18px;
+        }
+
+        footer {
+            border-top: 1px solid #252535;
+            padding: 35px 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Facts <span>by Lacey</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#facts">Facts</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <h1>Facts <span>by Lacey</span></h1>
+
+    <p>
+        The world is stranger than you think.
+        Discover fascinating facts that will make you stop and say,
+        "Wait... what?"
+    </p>
+
+    <a href="#facts" class="button">Explore Facts</a>
+
+</section>
+
+<section id="facts">
+
+    <div class="section-title">
+        <h2>Featured Facts</h2>
+        <p>Some facts are simply impossible to forget.</p>
+    </div>
+
+    <div class="facts-grid">
+
+        <div class="fact-card">
+            <small>Animals</small>
+            <h3>Three Hearts</h3>
+            <p>
+                Octopuses have three hearts, and two of them stop beating
+                when the animal swims.
+            </p>
+        </div>
+
+        <div class="fact-card">
+            <small>Nature</small>
+            <h3>Nature's Survivors</h3>
+            <p>
+                Some organisms can survive conditions that would be
+                impossible for most living things.
+            </p>
+        </div>
+
+        <div class="fact-card">
+            <small>Human Body</small>
+            <h3>Your Amazing Body</h3>
+            <p>
+                The human body contains an incredible network of organs,
+                nerves and systems working together every second.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="categories">
+
+    <div class="section-title">
+        <h2>Explore Categories</h2>
+        <p>Choose a world of facts to explore.</p>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">Animals</div>
+        <div class="category">Human Body</div>
+        <div class="category">Science</div>
+        <div class="category">Space</div>
+        <div class="category">History</div>
+        <div class="category">Psychology</div>
+        <div class="category">Nature</div>
+        <div class="category">Weird & Unbelievable</div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="section-title">
+        <h2>Feeling Curious?</h2>
+        <p>Let Facts by Lacey surprise you.</p>
+    </div>
+
+    <div class="random-box">
+
+        <div id="randomFact">
+            Click the button to discover a random fact.
+        </div>
+
+        <button class="button" onclick="showRandomFact()">
+            Discover Another Fact
+        </button>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Facts by Lacey</h2>
+    </div>
+
+    <div class="about">
+
+        <p>
+            Facts by Lacey is a place for curious minds.
+            From strange animal abilities to fascinating discoveries
+            about the human body, science, history and the world around us,
+            there is always something new to discover.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 <strong>Facts by Lacey</strong>.
+        The world is stranger than you think.
+    </p>
+
+</footer>
+
+<script>
+
+    const facts = [
+        "A group of flamingos is called a flamboyance.",
+        "Bananas are berries, but strawberries are not botanically berries.",
+        "Some turtles can breathe through their skin.",
+        "A day on Venus is longer than a year on Venus.",
+        "Your brain itself cannot feel pain.",
+        "Some frogs can freeze during winter and thaw back to life.",
+        "Cows have best friends and can become stressed when separated."
+    ];
+
+    function showRandomFact() {
+
+        const randomIndex = Math.floor(Math.random() * facts.length);
+
+        document.getElementById("randomFact").textContent =
+            facts[randomIndex];
+
+    }
+
+</script>
+
+</body>
+  </html>
